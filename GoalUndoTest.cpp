@@ -51,3 +51,14 @@ TEST(GoalUndoTest, emptyGoalCheck)
 	g.undoGoal();
 	ASSERT_EQ("",g.getGoal());	
 }
+
+TEST(GoalUndoTest, notEmptyGoalCheck)
+{	
+	GoalUndo g;
+	g.addOperation("Draw Square");
+	g.addOperation("Draw Square","Draw Horrizontal line");
+	g.addOperation("Draw Square","Rotate Right 90 degree");
+	g.undoGoal();
+	ASSERT_EQ("Draw Square",g.getGoal());
+	//ASSERT_EQ("Draw Horrizontal line",g.getOperations());	
+}
