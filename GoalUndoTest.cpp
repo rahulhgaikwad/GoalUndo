@@ -102,3 +102,12 @@ TEST(GoalUndoTest, argEmptyOperationCheck)
 	g.undoOperation("Draw Triangle");
 	ASSERT_EQ("",g.getOperations());
 }
+
+TEST(GoalUndoTest, argIterNotMatchCheck)
+{	
+	GoalUndo g;
+	g.addOperation("Draw Square");
+	g.addOperation("Draw Horrizontal line");
+	g.undoOperation("Draw Horrizontal line");
+	ASSERT_EQ("Draw Square",g.getOperations());
+}
