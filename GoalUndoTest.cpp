@@ -33,3 +33,14 @@ TEST(GoalUndoTest, getOperationCheck)
 	g.addOperation("Draw Square","Rotate Right 90 degree");
 	ASSERT_EQ("Rotate Right 90 degree",g.getOperations());
 }
+
+TEST(GoalUndoTest, getTopMostGoalCheck)
+{	GoalUndo g;
+	g.addOperation("Draw Square");
+	g.addOperation("Draw Square","Draw Horrizontal line");
+	g.addOperation("Draw Square","Rotate Right 90 degree");
+	g.addOperation("Draw Triangle");
+	g.addOperation("Draw Triangle","Draw Horrizontal line");
+	g.addOperation("Draw Triangle","Rotate Left 60 degree");
+	ASSERT_EQ("Draw Triangle",g.getGoal());
+}
