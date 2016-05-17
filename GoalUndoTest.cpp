@@ -158,3 +158,11 @@ TEST(GoalUndoTest, addEmptyGoalCheck)
 	g.addOperation("","Draw Horrizontal line");
 	ASSERT_EQ("",g.getOperations());
 }
+
+TEST(GoalUndoTest, addEmptyOperationCheck)
+{	
+	GoalUndo g;
+	g.addOperation("");
+	ASSERT_EQ("",g.getOperations());
+}
+
