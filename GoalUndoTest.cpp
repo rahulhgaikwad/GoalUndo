@@ -44,3 +44,10 @@ TEST(GoalUndoTest, getTopMostGoalCheck)
 	g.addOperation("Draw Triangle","Rotate Left 60 degree");
 	ASSERT_EQ("Draw Triangle",g.getGoal());
 }
+
+TEST(GoalUndoTest, emptyGoalCheck)
+{	
+	GoalUndo g;
+	g.undoGoal();
+	ASSERT_EQ("",g.getGoal());	
+}
