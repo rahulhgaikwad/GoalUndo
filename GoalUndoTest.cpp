@@ -79,3 +79,11 @@ TEST(GoalUndoTest, emptyOperationEmptyGoalCheck)
 	g.undoOperation();
 	ASSERT_EQ("",g.getOperations());	
 }
+
+TEST(GoalUndoTest, notEmptyOperationCheck)
+{	
+	GoalUndo g;
+	g.addOperation("Draw Square");
+	g.undoOperation();
+	ASSERT_EQ("",g.getOperations());		
+}
