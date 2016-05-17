@@ -126,23 +126,9 @@ TEST(GoalUndoTest, undoOperationInMiddleCheck)
 TEST(GoalUndoTest, undoOperationUndoGoalCheck)
 {	
 	GoalUndo g;
-	/*g.addOperation("Draw Square");
-	g.addOperation("Draw Horrizontal line");
-	g.addOperation("Rotate right 90 degree");
-	g.addOperation("Draw Vertical line");*/
-	//g.addOperation("Draw Square");
-	//g.addOperation("Draw Square","Draw Horizontal line");
 	g.addOperation("Draw Triangle","Rotate right 90 degree");
-	/*g.addOperation("Draw Triangle");
-	g.addOperation("Draw Triangle","Draw Horizontal line");
-	g.addOperation("Draw Triangle","Rotate left 90 degree");*/
-	//g.addOperation("Draw Square","Draw Horrizontal");
-	//g.undoOperation("Draw Horrizontal");
-	//g.addOperation("Draw Horrizontal line");
-	//g.undoGoal();
 	g.undoOperation("Rotate right 90 degree");
 	ASSERT_EQ("",g.getGoal());
-	//ASSERT_EQ("",g.getOperations());
 }
 
 TEST(GoalUndoTest, addEmptyGoalEmptyOperationCheck)
