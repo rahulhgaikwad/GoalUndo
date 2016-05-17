@@ -111,3 +111,14 @@ TEST(GoalUndoTest, argIterNotMatchCheck)
 	g.undoOperation("Draw Horrizontal line");
 	ASSERT_EQ("Draw Square",g.getOperations());
 }
+
+TEST(GoalUndoTest, undoOperationInMiddleCheck)
+{	
+	GoalUndo g;
+	g.addOperation("Draw Square");
+	g.addOperation("Draw Horrizontal line");
+	g.addOperation("Rotate right 90 degree");
+	g.addOperation("Draw Vertical line");
+	g.undoOperation("Rotate right 90 degree");
+	ASSERT_EQ("Draw Square Draw Horrizontal line Draw Vertical line",g.getOperations());
+}
