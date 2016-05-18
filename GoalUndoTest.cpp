@@ -159,7 +159,7 @@ TEST(GoalUndoTest, addEmptyOperationCheck)
 	ASSERT_EQ("",g.getOperations());
 }
 
-TEST(GoalUndoTest, undoRedundantOperationCheck)
+TEST(GoalUndoTest, argUndoRedundantOperationCheck)
 {
   GoalUndo g;
   g.addOperation("Draw Triangle","Rotate left 60 degree");
