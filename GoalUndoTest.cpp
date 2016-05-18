@@ -79,6 +79,14 @@ TEST(GoalUndoTest, emptyOperationEmptyGoalCheck)
 	ASSERT_EQ("",g.getOperations());	
 }
 
+TEST(GoalUndoTest, emptyOperationEmptyGoalRegressionCheck)
+{	
+	GoalUndo g;
+	g.addOperation("Draw Square","Draw Horrizontal line");
+	g.undoOperation();
+	ASSERT_EQ("",g.getGoal());	
+}
+
 TEST(GoalUndoTest, notEmptyOperationCheck)
 {	
 	GoalUndo g;
