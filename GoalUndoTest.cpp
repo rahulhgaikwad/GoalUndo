@@ -171,3 +171,16 @@ TEST(GoalUndoTest, argUndoRedundantOperationCheck)
   g.undoOperation("Rotate left 60 degree");
   ASSERT_EQ("Draw Triangle",g.getOperations());
 }
+
+TEST(GoalUndoTest, undoRedundantOperationCheck)
+{
+  GoalUndo g;
+  g.addOperation("Draw Triangle","Rotate left 60 degree");
+  g.addOperation("Draw Triangle");
+  g.addOperation("Rotate left 60 degree");
+  g.addOperation("Rotate left 60 degree");
+  g.undoOperation();
+  g.undoOperation();
+  g.undoOperation();
+  ASSERT_EQ("Rotate left 60 degree",g.getOperations());
+}
